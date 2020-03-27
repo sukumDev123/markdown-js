@@ -40,7 +40,7 @@ function CustomElementMarkDown(tag) {
 
 function eachOfTypeElement() {
   function hElement(text, sizeH) {
-    return `<h${sizeH}>${text}</h${sizeH}>[CUT]`;
+    return `<h${sizeH}>${text}</h${sizeH}>[-CUT-]`;
   }
   function pElement(text) {
     return "<p>" + text + "</p>" + "[-CUT-]";
