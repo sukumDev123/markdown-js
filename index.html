@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #content * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="textArea" cols="30" rows="10"></textarea>
+    <div id="content"></div>
+  </body>
+  <script src="./CustomElement.js"></script>
+  <script>
+    const contentElement = document.getElementById("content");
+    const textCustom = CustomElementMarkDown("#content");
+    document.getElementById("textArea").onkeyup = function() {
+      textCustom.text(this.value);
+    };
+  </script>
+</html>
