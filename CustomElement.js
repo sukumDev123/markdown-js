@@ -23,13 +23,16 @@ function CustomElementMarkDown(tag) {
   function liElement(text) {
     return "<li>" + text + "</li>" + "[CUT]";
   }
+  function imageElement(src) {
+    return `<img src="${src}"  />[CUT]`;
+  }
   const content = document.querySelector(tag);
   function customTextFunc(text) {
     const splitText = text.split("\n");
     let repText = [];
     if (splitText.length) {
       splitText.forEach(text_ => {
-        const regex = /######|#####|####|###|##|#|-|\w/;
+        const regex = /######|#####|####|###|##|#|-|img|size|\w/;
         const textNow = text_.replace(regex, function(x, val2, val3) {
           const splitX = val3.replace(regex, "");
           const textT = splitX.trim();
@@ -40,7 +43,8 @@ function CustomElementMarkDown(tag) {
             "####": h4Element(textT),
             "#####": h5Element(textT),
             "######": h6Element(textT),
-            "-": liElement(textT)
+            "-": liElement(textT),
+            img: imageElement(textT)
           };
 
           return elementFunc[x] ? elementFunc[x] : x + pElement(textT);

@@ -10,7 +10,8 @@
 - h6 --> ###### {text}
 - li --> - {text}
 - p --> {text}
+- img --> {image/dir}
 
 ### EX
 
-![alt text](https://github.com/sukumDev123/markdown-js/blob/master/ex.png "Logo Title Text 1")
+![alt text](https://github.com/sukumDev123/markdown-js/blob/master/ex.png?raw=true "Logo Title Text 1")
