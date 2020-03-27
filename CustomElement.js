@@ -23,7 +23,6 @@ function CustomElementMarkDown(tag) {
   function liElement(text) {
     return "<li>" + text + "</li>" + "[CUT]";
   }
-
   const content = document.querySelector(tag);
   function customTextFunc(text) {
     const splitText = text.split("\n");
@@ -43,16 +42,10 @@ function CustomElementMarkDown(tag) {
             "######": h6Element(textT),
             "-": liElement(textT)
           };
-          console.log({ x, elementFunc: elementFunc[x] });
 
-          if (elementFunc[x]) {
-            return elementFunc[x];
-          } else {
-            return x + pElement(textT);
-          }
+          return elementFunc[x] ? elementFunc[x] : x + pElement(textT);
         });
         const split_ = textNow.split("[CUT]");
-        console.log({ split_: split_[0] });
         repText += split_[0];
       });
     }
